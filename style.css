@@ -664,28 +664,132 @@ footer {
     }      
 }
 
-@media (max-width: 768px) {
-    .expenseArea {
-        grid-template-columns: 1fr; /* Mobile par 3 summary boxes ek ke niche ek aayenge */
-        gap: 12px;
+/* ==========================================
+   MOBILE VIEW & RESPONSIVE CSS (Optimized)
+   ========================================== */
+
+@media screen and (max-width: 768px) {
+    body {
+        padding-bottom: 110px; /* Footer ke liye space */
     }
-    .BalanceBox {
-        width: 100%;
-        margin: 0;
-    }
-    .formArea {
-        grid-template-columns: 1fr; /* Mobile par form fields ek column mein stack ho jayengi */
-        gap: 12px;
-    }
-    .btn {
-        grid-column: span 1;
-    }
-    .Icons {
-        padding: 6px 10px;
-        font-size: 0.75rem; 
-    }
+
+    /* 1. Header Area: Wallet upar center, text niche, button uske niche */
     .headerArea {
-        flex-direction: column;
-        gap: 10px;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 15px auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 12px !important;
+        padding: 0 10px !important;
+    }
+
+    #imageWallet {
+        height: 75px !important;
+        width: 75px !important;
+        margin: 0 auto !important;
+    }
+
+    .headingText {
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    /* Change Budget Button center mein aur proper size */
+    #AddMoney {
+        display: block !important;
+        margin: 5px auto !important;
+        width: 180px !important;
+        font-size: 0.9rem !important;
+    }
+
+    /* 2. 3 Summary Panels: Equal width, margin aur padding */
+    .expenseArea {
+        width: 90% !important;
+        max-width: 400px !important;
+        margin: 15px auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    .BalanceBox {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 15px !important;
+        border-radius: 14px !important;
+    }
+
+    .BalanceBox h1 {
+        font-size: 1.5rem !important;
+    }
+
+    /* 3. Footer Navbar: Icon upar, text niche (1 hi line mein horizontal scroll ya space-around) */
+    footer {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        background: rgba(18, 18, 18, 0.95) !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        padding: 8px 5px !important;
+        margin: 0 !important;
+        z-index: 999 !important;
+        box-sizing: border-box !important;
+    }
+
+    .Icons {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 6px 8px !important;
+        font-size: 10px !important; /* Text size chota taaki clean dikhe */
+        border-radius: 10px !important;
+        gap: 3px !important;
+        flex: 1 !important;
+        max-width: 75px !important;
+    }
+
+    .Icons i, .Icons img {
+        font-size: 16px !important;
+    }
+
+    /* 4. Floating Action Buttons (Add & Search) right side shift aur proper margin */
+    .AddIconButton {
+        right: 20px !important;
+        bottom: 75px !important;
+        gap: 12px !important;
+    }
+
+    #btnSearchProsnal, #btnAddProsnal {
+        width: 45px !important;
+        height: 45px !important;
+    }
+
+    /* Form Section responsive margin */
+    .formSection {
+        width: 92% !important;
+        max-width: 450px !important;
+        margin: 15px auto !important;
+        padding: 15px !important;
+    }
+
+    .formArea {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .Icons {
+        font-size: 9px !important;
+        padding: 5px 4px !important;
     }
 }
