@@ -1,0 +1,1154 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* =========================
+   1. GLOBAL RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    background: #121215;
+    font-family: 'Fraunces', serif;
+    font-variant: small-caps;
+    color: whitesmoke;
+
+    /* Content footer ke peeche nahi jayega */
+    padding: 0 0 100px;
+    overflow-x: hidden;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* =========================
+   2. HEADER
+========================= */
+
+#HeadingElement {
+    text-align: center;
+}
+
+.headerArea {
+    width: min(100% - 32px, 900px);
+    margin: 20px auto 25px;
+    padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+
+    color: #f3d4bc;
+}
+
+.headingText {
+    min-width: 0;
+    text-align: left;
+}
+
+.headingName {
+    font-size: clamp(1.5rem, 4vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    overflow-wrap: anywhere;
+
+    text-shadow: 0 0 15px rgba(247, 198, 167, 0.3);
+}
+
+.subHeading {
+    font-family: "Pacifico", cursive;
+    font-size: clamp(0.85rem, 2vw, 1.2rem);
+    font-weight: 400;
+    color: #d4a373;
+
+    text-shadow: 0 0 10px rgba(252, 131, 56, 0.4);
+}
+
+#imageWallet {
+    width: 100px;
+    height: 85px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+#AddMoney {
+    display: inline-block;
+    padding: 10px 18px;
+    margin: 8px;
+
+    border: none;
+    border-radius: 40px;
+
+    font-size: 1rem;
+    background: linear-gradient(45deg, #9e6c6c, pink);
+    color: black;
+}
+
+#AddMoney:hover {
+    background: linear-gradient(45deg, grey, #251212);
+    color: skyblue;
+}
+
+/* =========================
+   3. INCOME / EXPENSE / BALANCE
+========================= */
+
+.expenseArea {
+    width: min(100% - 32px, 1000px);
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+
+    height: auto;
+}
+
+.BalanceBox {
+    width: 100%;
+    min-width: 0;
+    padding: 20px 12px;
+
+    background: linear-gradient(145deg, #1a1b22, #14151a);
+    border: 1px solid #01f9cb;
+    border-radius: 16px;
+
+    text-align: center;
+    overflow-wrap: anywhere;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.BalanceBox:hover {
+    transform: translateY(-4px);
+    border-color: #d4a373;
+    box-shadow: 0 12px 30px rgba(1, 249, 203, 0.15);
+}
+
+.BalanceBox .income {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #a89f91;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.BalanceBox h1 {
+    font-size: clamp(1.15rem, 2.2vw, 1.8rem);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+#TotalBudgut {
+    color: #4ade80;
+    text-shadow: 0 0 12px rgba(74, 222, 128, 0.25);
+}
+
+#ExpendBudget {
+    color: #f87171;
+    text-shadow: 0 0 12px rgba(248, 113, 113, 0.25);
+}
+
+#AvlBudget {
+    color: #fbbf24;
+    text-shadow: 0 0 12px rgba(251, 191, 36, 0.25);
+}
+
+/* =========================
+   4. FORM SECTION
+========================= */
+
+.formSection {
+    width: min(100% - 32px, 1000px);
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+
+    display: none;
+
+    border: 1px solid rgb(2, 105, 67);
+    border-radius: 16px;
+    background: linear-gradient(145deg, #1a1b22, #14151a);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Form visible hone par JS se class/style change kar sakte ho */
+
+#RsLable,
+#DesLable,
+#typeLable,
+#typeCategory {
+    display: inline-block;
+    color: yellow;
+    font-size: 1rem;
+    padding-left: 5px;
+    margin-bottom: 5px;
+}
+
+.formArea {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    align-items: end;
+    width: 100%;
+}
+
+.descriptionDiv,
+.TypeDiv,
+.cetegoryDiv,
+.amountDiv,
+.DateDiv,
+.btn {
+    width: 100%;
+    min-width: 0;
+}
+
+input,
+select {
+    width: 100%;
+    min-width: 0;
+    height: 44px;
+    margin-top: 5px;
+    padding: 0 12px;
+
+    background: #272c47;
+    color: whitesmoke;
+
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    outline: none;
+
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: #01f9cb;
+    box-shadow: 0 0 8px rgba(1, 249, 203, 0.3);
+}
+
+input::placeholder {
+    color: #a89f91;
+}
+
+#InputDate {
+    padding-left: 12px;
+}
+
+#SubmitAlert {
+    padding-top: 15px;
+    text-align: center;
+    color: rgb(253, 73, 73);
+}
+
+button[type="submit"],
+#SubmitBtn,
+.SubmitBtn {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+
+    border: 1px solid green;
+    border-radius: 30px;
+
+    background: orange;
+    color: green;
+
+    font-size: 1rem;
+    font-weight: 600;
+    font-variant: small-caps;
+
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+button[type="submit"]:hover,
+#SubmitBtn:hover,
+.SubmitBtn:hover {
+    background: rgb(89, 89, 227);
+    color: white;
+}
+
+button[type="submit"]:active,
+#SubmitBtn:active,
+.SubmitBtn:active {
+    transform: scale(0.97);
+}
+
+/* =========================
+   5. TRANSACTION OUTPUT
+========================= */
+
+.Output {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+
+    width: min(100% - 32px, 700px);
+    max-width: 700px;
+    max-height: 60vh;
+
+    margin: 20px auto;
+    padding: 0 5px 10px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.transaction-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    min-width: 0;
+    padding: 15px;
+
+    background: linear-gradient(145deg, #1a1b22, #14151a);
+    border-radius: 16px;
+    color: white;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.transaction-card h4 {
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+}
+
+.income-amount {
+    color: #4ade80;
+    font-size: 1.1rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.expense-amount {
+    color: #f87171;
+    font-size: 1.1rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   6. FOOTER NAVBAR
+   Always ONE horizontal line
+========================= */
+
+footer {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    background: rgba(18, 18, 21, 0.97);
+    border-top: 1px solid rgba(1, 249, 203, 0.2);
+}
+
+.Icons {
+    flex: 0 1 100px;
+    min-width: 0;
+    max-width: 110px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    padding: 8px 5px;
+
+    border: 1px solid antiquewhite;
+    border-radius: 14px;
+    background: transparent;
+    color: whitesmoke;
+
+    font-size: 0.75rem;
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.Icons img,
+.Icons svg {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.Icons.active,
+.Icons:hover {
+    border-color: skyblue;
+    background: whitesmoke;
+    color: #000;
+}
+
+/* =========================
+   7. FLOATING ACTION BUTTONS
+========================= */
+
+.AddIconButton {
+    position: fixed;
+    right: 24px;
+    bottom: 105px;
+    z-index: 1500;
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 12px;
+}
+
+.AddIconButton button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+    padding: 4px;
+
+    border: none;
+    border-radius: 50%;
+    overflow: hidden;
+
+    background: linear-gradient(60deg, #7d84b8, #01f9cb);
+    transition: transform 0.2s ease;
+}
+
+#btnSearchProsnal,
+#btnAddProsnal {
+    width: 50px;
+    height: 50px;
+}
+
+.AddIconButton button img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.AddIconButton button:hover {
+    transform: scale(1.08);
+}
+
+/* =========================
+   8. SEARCH SECTION
+========================= */
+
+.SearchSection {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+
+    width: min(100% - 32px, 500px);
+    max-width: 500px;
+    max-height: 60vh;
+
+    margin: 15px auto;
+    padding: 12px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.searchContainer {
+    width: 100%;
+    padding: 18px;
+
+    background: rgba(18, 18, 18, 0.95);
+    border: 1px solid #01f9cb;
+    border-radius: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.searchContainer h3 {
+    color: #ffdf9e;
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.searchBox {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.searchBox fieldset {
+    min-width: 0;
+    padding: 8px 12px;
+
+    background: #1e1e1e;
+    border: 1px solid #444;
+    border-radius: 8px;
+}
+
+.searchBox legend {
+    padding: 0 5px;
+    color: #01f9cb;
+    font-size: 13px;
+}
+
+.searchBox input[type="date"] {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: whitesmoke;
+    font-size: 14px;
+    outline: none;
+}
+
+.Quick {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.QuickSelection {
+    color: #ffdf9e;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.quick-btn {
+    padding: 9px;
+
+    background: #1e1e1e;
+    border: 1px solid #0d7c66;
+    border-radius: 6px;
+    color: whitesmoke;
+
+    font-size: 13px;
+    transition: background 0.2s ease;
+}
+
+.quick-btn.active {
+    background: #01f9cb;
+    color: #121212;
+    font-weight: bold;
+    border-color: #01f9cb;
+}
+
+.Quick button:hover {
+    background: #0d7c66;
+}
+
+#searchBtn {
+    width: 100%;
+    min-height: 42px;
+    margin-top: 10px;
+    padding: 10px;
+
+    background: #0d7c66;
+    color: white;
+    border: none;
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#searchBtn:hover {
+    background: #00b894;
+}
+
+/* =========================
+   9. BUDGET MODAL
+========================= */
+
+.budget-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.budget-modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    width: 100%;
+    max-width: 360px;
+    padding: 20px;
+
+    background: #121212;
+    border: 1px solid #01f9cb;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.budget-modal-content h3 {
+    color: #ffdf9e;
+    text-align: center;
+    font-size: 16px;
+}
+
+.budget-modal-content input {
+    width: 100%;
+    padding: 10px;
+    background: #1e1e1e;
+    border: 1px solid #444;
+    color: whitesmoke;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.modal-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-btns button {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 6px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+#saveBudgetBtn {
+    background: #0d7c66;
+    color: white;
+}
+
+#closeBudgetBtn {
+    background: #444;
+    color: whitesmoke;
+}
+
+/* =========================
+   10. LAPTOP / SMALL DESKTOP
+   769px - 1024px
+========================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .headerArea {
+        width: min(90%, 800px);
+    }
+
+    .expenseArea {
+        width: 90%;
+        gap: 12px;
+    }
+
+    .BalanceBox {
+        padding: 18px 10px;
+    }
+
+    .formSection {
+        width: 90%;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+
+    .formArea {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .btn {
+        grid-column: 1 / -1;
+    }
+
+    .Output {
+        width: 85%;
+    }
+
+    .AddIconButton {
+        right: 22px;
+    }
+
+    footer {
+        gap: 10px;
+    }
+
+    .Icons {
+        flex-basis: 90px;
+    }
+}
+
+/* =========================
+   11. TABLET
+   481px - 768px
+========================= */
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    body {
+        padding-bottom: 100px;
+    }
+
+    .headerArea {
+        width: 90%;
+        gap: 12px;
+        margin: 15px auto 20px;
+    }
+
+    #imageWallet {
+        width: 80px;
+        height: 75px;
+    }
+
+    .headingName {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .expenseArea {
+        width: 92%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin: 15px auto;
+    }
+
+    .BalanceBox {
+        padding: 16px 7px;
+        border-radius: 12px;
+    }
+
+    .BalanceBox .income {
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+    }
+
+    .BalanceBox h1 {
+        font-size: clamp(0.95rem, 2.8vw, 1.35rem);
+    }
+
+    .formSection {
+        width: 92%;
+        padding: 16px;
+        max-height: 65vh;
+        overflow-y: auto;
+    }
+
+    .formArea {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .btn {
+        grid-column: 1 / -1;
+    }
+
+    .Output,
+    .SearchSection {
+        width: 92%;
+        max-height: 55vh;
+    }
+
+    .AddIconButton {
+        right: 14px;
+        bottom: 105px;
+    }
+
+    footer {
+        gap: 6px;
+        padding: 7px 8px calc(7px + env(safe-area-inset-bottom));
+    }
+
+    .Icons {
+        flex: 1 1 0;
+        padding: 7px 3px;
+        gap: 4px;
+        font-size: 0.68rem;
+        border-radius: 11px;
+    }
+
+    .Icons img,
+    .Icons svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+/* =========================
+   12. MOBILE
+   320px - 480px
+========================= */
+
+@media (max-width: 480px) {
+
+    body {
+        padding-bottom: 92px;
+    }
+
+    /* Header compact */
+    .headerArea {
+        width: calc(100% - 24px);
+        margin: 12px auto 18px;
+        padding: 5px;
+
+        gap: 10px;
+        justify-content: center;
+    }
+
+    #imageWallet {
+        width: 60px;
+        height: 60px;
+    }
+
+    .headingText {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .headingName {
+        font-size: clamp(1.2rem, 5.5vw, 1.7rem);
+        line-height: 1.15;
+    }
+
+    .subHeading {
+        font-size: clamp(0.72rem, 3.2vw, 0.95rem);
+        line-height: 1.4;
+    }
+
+    #AddMoney {
+        padding: 9px 13px;
+        margin: 5px;
+        font-size: 0.85rem;
+    }
+
+    /* Summary cards: three in one row */
+    .expenseArea {
+        width: calc(100% - 24px);
+        margin: 12px auto 18px;
+        padding: 0;
+
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 7px;
+
+        height: auto;
+    }
+
+    .BalanceBox {
+        min-width: 0;
+        padding: 13px 5px;
+        border-radius: 11px;
+        border-width: 1px;
+    }
+
+    .BalanceBox:hover {
+        transform: none;
+    }
+
+    .BalanceBox .income {
+        font-size: clamp(0.58rem, 2.5vw, 0.72rem);
+        letter-spacing: 0;
+        line-height: 1.35;
+        margin-bottom: 7px;
+        overflow-wrap: anywhere;
+    }
+
+    .BalanceBox h1 {
+        font-size: clamp(0.78rem, 3.4vw, 1.05rem);
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+    }
+
+    /* Forms */
+    .formSection {
+        width: calc(100% - 24px);
+        max-height: 60vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        margin: 12px auto;
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    .formArea {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .descriptionDiv,
+    .TypeDiv,
+    .cetegoryDiv,
+    .amountDiv,
+    .DateDiv,
+    .btn {
+        grid-column: 1;
+        width: 100%;
+    }
+
+    #RsLable,
+    #DesLable,
+    #typeLable,
+    #typeCategory {
+        font-size: 0.9rem;
+    }
+
+    input,
+    select {
+        height: 42px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+
+    button[type="submit"],
+    #SubmitBtn,
+    .SubmitBtn {
+        min-height: 42px;
+        font-size: 0.95rem;
+    }
+
+    /* Transaction list */
+    .Output {
+        width: calc(100% - 24px);
+        max-height: 48vh;
+        gap: 10px;
+        margin: 12px auto;
+        padding: 0 2px 8px;
+    }
+
+    .transaction-card {
+        gap: 8px;
+        padding: 12px 10px;
+        border-radius: 12px;
+    }
+
+    .transaction-card h4 {
+        font-size: 0.88rem;
+    }
+
+    .income-amount,
+    .expense-amount {
+        font-size: 0.9rem;
+        text-align: right;
+    }
+
+    /* Search */
+    .SearchSection {
+        width: calc(100% - 24px);
+        max-height: 50vh;
+        padding: 6px;
+        gap: 10px;
+    }
+
+    .searchContainer {
+        padding: 14px;
+    }
+
+    .searchContainer h3 {
+        font-size: 16px;
+    }
+
+    /* Floating buttons */
+    .AddIconButton {
+        right: 12px;
+        bottom: 98px;
+        gap: 9px;
+    }
+
+    .AddIconButton button,
+    #btnSearchProsnal,
+    #btnAddProsnal {
+        width: 43px;
+        height: 43px;
+    }
+
+    /* Footer: five buttons, one line */
+    footer {
+        width: 100%;
+        left: 0;
+        bottom: 0;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: stretch;
+        gap: 3px;
+
+        padding: 6px 5px calc(6px + env(safe-area-inset-bottom));
+    }
+
+    .Icons {
+        flex: 1 1 0;
+        width: 0;
+        min-width: 0;
+        max-width: none;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+
+        padding: 6px 1px;
+        border-radius: 9px;
+        font-size: clamp(0.55rem, 2.4vw, 0.68rem);
+        line-height: 1.15;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    .Icons img,
+    .Icons svg {
+        width: clamp(22px, 6vw, 27px);
+        height: clamp(22px, 6vw, 27px);
+        flex-shrink: 0;
+    }
+
+    /* Modal */
+    .budget-modal {
+        padding: 12px;
+    }
+
+    .budget-modal-content {
+        padding: 16px;
+        gap: 12px;
+    }
+}
+
+/* =========================
+   13. VERY SMALL MOBILE
+   320px - 360px
+========================= */
+
+@media (max-width: 360px) {
+
+    .headerArea {
+        gap: 6px;
+    }
+
+    #imageWallet {
+        width: 48px;
+        height: 52px;
+    }
+
+    .headingName {
+        font-size: 1.15rem;
+    }
+
+    .subHeading {
+        font-size: 0.7rem;
+    }
+
+    .expenseArea {
+        gap: 5px;
+        width: calc(100% - 16px);
+    }
+
+    .BalanceBox {
+        padding: 11px 3px;
+    }
+
+    .BalanceBox .income {
+        font-size: 0.55rem;
+    }
+
+    .BalanceBox h1 {
+        font-size: 0.75rem;
+    }
+
+    footer {
+        gap: 2px;
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+    .Icons {
+        padding: 5px 0;
+        font-size: 0.54rem;
+        border-radius: 7px;
+    }
+
+    .Icons img,
+    .Icons svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .AddIconButton {
+        right: 8px;
+    }
+}
+
+/* =========================
+   14. SCROLLBARS
+========================= */
+
+.Output::-webkit-scrollbar,
+.formSection::-webkit-scrollbar,
+.SearchSection::-webkit-scrollbar {
+    width: 5px;
+}
+
+.Output::-webkit-scrollbar-track,
+.formSection::-webkit-scrollbar-track,
+.SearchSection::-webkit-scrollbar-track {
+    background: #121212;
+    border-radius: 10px;
+}
+
+.Output::-webkit-scrollbar-thumb,
+.formSection::-webkit-scrollbar-thumb,
+.SearchSection::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, pink, yellow, green);
+    border-radius: 10px;
+}
+
+.Output::-webkit-scrollbar-thumb:hover,
+.formSection::-webkit-scrollbar-thumb:hover,
+.SearchSection::-webkit-scrollbar-thumb:hover {
+    background: #00b894;
+}

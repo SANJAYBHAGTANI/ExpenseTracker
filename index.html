@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="headerArea">
+        <div class="headingImage" id="HeadingElement">
+            <img src="Expense images/wallet-removebg-preview.png" alt="" srcset="" id="imageWallet">
+        </div>
+        <div class="headingText" id="HeadingElement">
+            <h1 class="headingName">Your Budget</h1>
+            <h2 class="subHeading">It's Your Expense Tracker</h2>
+        </div>
+        <div class="HeadingButton" id="HeadingElement">
+            <button id="AddMoney">+ Add BUDGET</button>
+        </div>
+        
+        <div id="budgetModal" class="budget-modal" style="display: none;">
+            <div class="budget-modal-content">
+                <h3>Enter Your Budget</h3>
+                <input type="number" id="budgetInput" placeholder="Enter amount...">
+                <div class="modal-btns">
+                    <button id="saveBudgetBtn">Save</button>
+                    <button id="closeBudgetBtn">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="expenseArea">
+        <div class="BalanceBox" id="totalBudget">
+            <h2 class="income">Your Budget</h2>
+            <h1 id="TotalBudgut">₹ 00</h1>
+        </div>
+
+        <div class="BalanceBox" id="totalExpense">
+            <h2 class="income">Expense</h2>
+            <h1 id="ExpendBudget">₹ 00</h1>
+        </div>
+
+        <div class="BalanceBox" id="totalbalance">
+            <h2 class="income">Total Balance</h2>
+            <h1 id="AvlBudget">₹ 00</h1>
+            </div>
+
+        </div>
+
+    <section class="formSection">
+        <form class="formArea">
+            <div class="amountDiv" id="formDiv">
+                <label for="description" id="RsLable">Rs.</label><br>
+                <input type="number" id="AmountInput" placeholder="Enter Amount" required>
+            </div>
+
+            <div class="descriptionDiv" id="formDiv">
+                <label for="description" id="DesLable">Transaction Description</label><br>
+                <input type="text" id="descriptionInput" placeholder="Description" required>
+            </div>
+
+            <div class="TypeDiv" id="formDiv">
+                <label for="type" id="typeLable">Type</label><br>
+                    <select id="type" class="form-control" required>
+                        <option value="" disabled selected hidden>Select Type</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+            </div>
+
+            <div class="cetegoryDiv" id="formDiv">
+                <label for="category" id="typeCategory">Category</label><br>
+                <select class="form-control" id="category" required>
+                    <option value="" disabled selected hidden>Food, Travel, Fashion...</option>
+                    <option value="Food">Food</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Stationary">Stationary</option>
+                    <option value="Fashion">Fashion</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Bill">Bill</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="DateDiv" id="DATEDiv" id="formDiv">
+                <label for="type" id="typeCategory">Date</label><br>
+                <input type="date" id="InputDate" required>
+            </div>
+
+            <div class="btn">
+                <button type="submit" class="SubmitBtn">Add</button>
+            </div>
+
+        </form>
+        <p id="SubmitAlert"></p>
+    </section>
+
+    <section class="Output">
+    </section>
+
+    <div class="AddIconButton">
+        <button type="button" id="btn">
+            <img src="Expense images/seach-removebg-preview.png" alt="search" id="btnSearchProsnal">
+        </button>
+        <button type="button" id="btn">
+            <img src="Expense images/plus-removebg-preview.png" alt="Add" id="btnAddProsnal">
+        </button>
+    </div>
+
+    <section class="SearchSection">
+    <div class="searchContainer">
+        <h3>Search Transactions</h3>
+        <div class="searchBox">
+            
+            <!-- Start Date Field -->
+            <fieldset>
+                <legend>Start Date:</legend>
+                <input type="date" id="StartInput">
+            </fieldset>
+
+            <fieldset>
+                <legend>End Date:</legend>
+                <input type="date" id="EndInput">
+            </fieldset>
+
+            <div class="Quick">
+                <h2 class="QuickSelection">Quick selection</h2>
+                <button type="button" class="quick-btn" data-range="today">Today</button>
+                <button type="button" class="quick-btn" data-range="yesterday">Yesterday</button>
+                <button type="button" class="quick-btn" data-range="week">ThisWeek</button>
+                <button type="button" class="quick-btn" data-range="month">LastMonth</button>
+            </div>
+
+            <button id="searchBtn">Search</button>
+        </div>
+    </div>
+    </section>
+
+    <footer>
+        <button  class="Icons active" id="homeIcon">🏠 Home</button>
+        <button class="Icons" id="TransIcon">🧾 Transction</button>
+        <button  class="Icons" id="Income">💰 Income</button>
+        <button  class="Icons" id="Expense">⚖️ Expense</button>
+        <button  class="Icons" id="AddIcon">📝Add</button>
+    </footer>
+
+
+    <script src="script.js" defer></script>
+</body>
+</html>
